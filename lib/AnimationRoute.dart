@@ -32,9 +32,17 @@ class _AnimationRouteState extends State<AnimationRoute>
         title: new Text(widget.title),
       ),
       body: new Center(
+
         child: new GestureDetector(
+
+          child:new Padding(
+
+            padding: new EdgeInsets.only(top:20),
+
           child: Column(
+
             mainAxisAlignment: MainAxisAlignment.center,
+
             children: <Widget>[
               new FadeTransition(//渐变
                   opacity: curve,
@@ -51,14 +59,7 @@ class _AnimationRouteState extends State<AnimationRoute>
             ],
           ),
 
-//        child: new Container(
-//            child: new RotationTransition(
-////                opacity: curve,
-//                turns: curve,
-//                child: new FlutterLogo(
-//                  size: 100.0,
-//                ))
-
+          ),
           onDoubleTap: () {
             if (controller2.isCompleted) {
               controller2.reverse();
@@ -66,7 +67,8 @@ class _AnimationRouteState extends State<AnimationRoute>
               controller2.forward();
             }
           },
-        ),
+
+      )
 //
 //
       ),
@@ -74,7 +76,12 @@ class _AnimationRouteState extends State<AnimationRoute>
         tooltip: 'Fade',
         child: new Icon(Icons.brush),
         onPressed: () {
-          controller.forward();
+          if (controller.isCompleted) {
+            controller.reverse();
+          } else {
+            controller.forward();
+          }
+//          controller.forward();
         },
       ),
     );

@@ -45,8 +45,6 @@ class ScrollControllerTestRouteState extends State<ScrollControllerRoute> {
       appBar: AppBar(title: Text("滚动控制")),
       body: Scrollbar(
 
-
-
         child: ListView.builder(
             itemCount: 100,
             itemExtent: 50.0, //列表项高度固定时，显式指定高度是一个好习惯(性能消耗小)
