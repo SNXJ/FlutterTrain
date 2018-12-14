@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_first/AnimationRoute.dart';
 import 'package:flutter_first/CanvasPaintRoute.dart';
 import 'package:flutter_first/CustomScrollViewRoute.dart';
+import 'package:flutter_first/ImageRoute.dart';
 import 'package:flutter_first/InfiniteListView.dart';
 import 'package:flutter_first/LoginRoute.dart';
+import 'package:flutter_first/MixListView.dart';
 import 'package:flutter_first/ScrollControllerRoute.dart';
+import 'package:flutter_first/SimpleGridView.dart';
 import 'package:flutter_first/WidgetChangeRoute.dart';
 
 void main() => runApp(MyApp());
@@ -16,10 +19,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        primaryColor: Colors.lightBlue[800],
+        accentColor: Colors.cyan[600],
+//        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: ' Home Page'),
       routes: {
+        "imageRoute": (context) => ImageRoute(),
+        "MixListView": (context) => MixListView(),
+        "SimpleGirdView": (context) => SimpleGirdView(),
         "new route": (context) => NewRoute("注册"),
         "LoginRoute": (context) => LoginRoute("登陆/注册"),
         "CustomScrollViewRoute": (context) => CustomScrollViewRoute(),
@@ -65,30 +74,38 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-              style: TextStyle(
-                height: 3,
-              ),
-              textAlign: TextAlign.center,
-            ),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "imageRoute");
+                },
+                textColor: Colors.white,
+                color: Colors.blue,
+                child: Text("图片显示")),
+//
+//            RaisedButton(
+//              child: Text("简单列表"),
+//              textColor: Colors.red,
+//              onPressed: () {
+//                Navigator.pushNamed(context, "new route"); //注册名打开 命名路由
+//
+////                Navigator.push(context, new MaterialPageRoute(builder: (context){
+////                  return new NewRoute("哈哈");
+////                }
+////                ));
+//              },
+//            ),
 
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            FlatButton(
-              child: Text("open new Route"),
-              textColor: Colors.red,
-              onPressed: () {
-                Navigator.pushNamed(context, "new route"); //注册名打开 命名路由
+            RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "MixListView");
+                },
+                child: Text("混合列表")),
+  RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "SimpleGirdView");
+                },
+                child: Text("简单GirdView")),
 
-//                Navigator.push(context, new MaterialPageRoute(builder: (context){
-//                  return new NewRoute("哈哈");
-//                }
-//                ));
-              },
-            ),
             RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "InfiniteListView");
@@ -115,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, "AnimationRoute");
                 },
                 child: Text("AnimationRoute")),
-  RaisedButton(
+            RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "CanvasPaintRoute");
                 },
@@ -199,48 +216,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
 
             Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image(
-                  image: AssetImage("images/demo.png"),
-                  width: 50,
-                ),
-                Image.asset(
-                  "images/avatar.png",
-                  width: 50.0,
-//                color: Colors.yellow,
-//                colorBlendMode: BlendMode.difference,
-                ),
-                Image(
-                  image: NetworkImage("https://www.baidu.com/img/bd_logo1.png"),
-                  width: 100.0,
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(
-                  Icons.accessible,
-                  color: Colors.blue,
-                ),
-                Icon(
-                  Icons.error,
-                  color: Colors.purple,
-                ),
-                Icon(
-                  Icons.fingerprint,
-                  color: Colors.green,
-                ),
-                Icon(
-                  Icons.access_alarm,
-                  color: Colors.red,
-                ),
-              ],
-            ),
-
-            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Switch(
@@ -261,8 +236,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       _checkboxSelected = value;
                     });
                   },
-                )
+                ),
               ],
+            ),
+
+            Text(
+              'You have pushed the button this many times:',
+              style: TextStyle(
+                height: 3,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),

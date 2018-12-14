@@ -25,6 +25,10 @@ dependencies:
   json_annotation: ^2.0.0
   http: '>=0.11.3+12'
 
+  shared_preferences: ^0.4.3
+
+  transparent_image: 0.1.0  #透明图片展位淡出
+
 
 
 dev_dependencies:
