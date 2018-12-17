@@ -4,6 +4,7 @@ import 'package:flutter_first/CanvasPaintRoute.dart';
 import 'package:flutter_first/CustomScrollViewRoute.dart';
 import 'package:flutter_first/ImageRoute.dart';
 import 'package:flutter_first/InfiniteListView.dart';
+import 'package:flutter_first/ListViewDetail.dart';
 import 'package:flutter_first/LoginRoute.dart';
 import 'package:flutter_first/MixListView.dart';
 import 'package:flutter_first/ScrollControllerRoute.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         "WidgetChangeRoute": (context) => WidgetChangeRoute(),
         "AnimationRoute": (context) => AnimationRoute(),
         "CanvasPaintRoute": (context) => CanvasPaintRoute()
+//        "ListViewDetail": (context) => ListViewDetail()
       },
     );
   }
@@ -110,13 +112,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, "InfiniteListView");
                 },
-                child: Text("ListView route")),
+                child: Text("ListView加载")),
 
             RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "CustomScrollViewRoute");
                 },
-                child: Text("CustomScrollViewRoute")),
+                child: Text("多布局列表")),
             RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "ScrollControllerRoute");
