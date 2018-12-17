@@ -66,7 +66,7 @@ class _SimpleGirdViewState extends State<SimpleGirdView> {
               child: new Text(
                 item.str,
                 style: new TextStyle(
-                  color: Colors.green,
+                  color: Colors.yellow,
                 ),
               ),
 //
