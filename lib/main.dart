@@ -9,6 +9,7 @@ import 'package:flutter_first/LoginRoute.dart';
 import 'package:flutter_first/MixListView.dart';
 import 'package:flutter_first/ScrollControllerRoute.dart';
 import 'package:flutter_first/SimpleGridView.dart';
+import 'package:flutter_first/SimpleHttp.dart';
 import 'package:flutter_first/WidgetChangeRoute.dart';
 
 void main() => runApp(MyApp());
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         "InfiniteListView": (context) => InfiniteListView(),
         "WidgetChangeRoute": (context) => WidgetChangeRoute(),
         "AnimationRoute": (context) => AnimationRoute(),
+        "SimpleHttp": (context) => SimpleHttp(),
         "CanvasPaintRoute": (context) => CanvasPaintRoute()
 //        "ListViewDetail": (context) => ListViewDetail()
       },
@@ -119,6 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, "CustomScrollViewRoute");
                 },
                 child: Text("多布局列表")),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "SimpleHttp");
+                },
+                child: Text("简单网络请求")),
             RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "ScrollControllerRoute");
