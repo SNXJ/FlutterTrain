@@ -31,6 +31,8 @@ dependencies:
 
   transparent_image: 0.1.0  #透明图片展位淡出
 
+  flutter_screenutil: ^0.4.2  #屏幕适配
+
 
 
 dev_dependencies:
