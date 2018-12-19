@@ -4,9 +4,10 @@ import 'package:flutter_first/CanvasPaintRoute.dart';
 import 'package:flutter_first/CustomScrollViewRoute.dart';
 import 'package:flutter_first/ImageRoute.dart';
 import 'package:flutter_first/InfiniteListView.dart';
-import 'package:flutter_first/ListViewDetail.dart';
+import 'package:flutter_first/ListViewDetail.dart';//详情
 import 'package:flutter_first/LoginRoute.dart';
 import 'package:flutter_first/MixListView.dart';
+import 'package:flutter_first/ScreenUtilRoute.dart';
 import 'package:flutter_first/ScrollControllerRoute.dart';
 import 'package:flutter_first/SimpleGridView.dart';
 import 'package:flutter_first/SimpleHttp.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(title: ' Home Page'),
       routes: {
+        "ScreenUtilRoute": (context) => ScreenUtilRoute(),
         "imageRoute": (context) => ImageRoute(),
         "MixListView": (context) => MixListView(),
         "SimpleGirdView": (context) => SimpleGirdView(),
@@ -80,6 +82,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             RaisedButton(
                 onPressed: () {
+                  Navigator.pushNamed(context, "ScreenUtilRoute");
+                },
+                textColor: Colors.white,
+                color: Colors.blue,
+                child: Text("屏幕适配")),
+
+            RaisedButton(
+                onPressed: () {
                   Navigator.pushNamed(context, "imageRoute");
                 },
                 textColor: Colors.white,
@@ -104,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, "MixListView");
                 },
                 child: Text("混合列表")),
-  RaisedButton(
+            RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "SimpleGirdView");
                 },
