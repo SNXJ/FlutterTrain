@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_first/pages/HomePage.dart';
+import 'package:flutter_first/pages/MinePage.dart';
 import 'package:flutter_first/pages/TempPage.dart';
 import 'package:flutter_first/pages/TrainDemoPage.dart';
 
@@ -57,8 +58,8 @@ class _TrainState extends State<MyTrainClient> {
         new HomePage(tabText[0]),
         new TempPage(tabText[1]),
         new TempPage(tabText[2]),
-        new TempPage(tabText[3]),
         new TrainDemoPage(),
+        new MinePage(tabText[4]),
       ],
       index: _currentIndex,
     );
@@ -77,21 +78,19 @@ class _TrainState extends State<MyTrainClient> {
 
 //
       home: new Scaffold(
-        appBar: new AppBar(
-          title: new Center(
-            child: new Text(
-              tabText[_currentIndex],
-              style: new TextStyle(
-                fontSize: 18,
-              ),
-            ),
-          ),
-        ),
+        appBar: (_currentIndex != 3
+            ? new AppBar(
+                title: new Center(
+                  child: new Text(
+                    tabText[_currentIndex],
+                    style: new TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              )
+            : null),
         body: _body,
-//        body: new Center(
-//          child: _getTabText(_currentIndex),
-//        ),
-
         bottomNavigationBar: new CupertinoTabBar(
           items: <BottomNavigationBarItem>[
             new BottomNavigationBarItem(
@@ -122,6 +121,7 @@ class _TrainState extends State<MyTrainClient> {
             });
           },
         ),
+//        drawer: new ,
       ),
     );
   }
