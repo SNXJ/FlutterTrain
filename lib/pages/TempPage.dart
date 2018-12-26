@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class TempPage extends StatefulWidget {
   String title;
 
-  HomePage(this.title);
+  TempPage(this.title);
 
   @override
-  _HomePageState createState() => new _HomePageState(title);
+  _TempPageState createState() => new _TempPageState(title);
 }
 
-class _HomePageState extends State<HomePage> {
+class _TempPageState extends State<TempPage> {
   String title;
 
   @override
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   }
 
-  _HomePageState(this.title);
+  _TempPageState(this.title);
 
 
 }

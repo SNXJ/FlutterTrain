@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_first/pages/HomePage.dart';
+import 'package:flutter_first/pages/TempPage.dart';
+import 'package:flutter_first/pages/TrainDemoPage.dart';
 
 void main() => runApp(MyTrainClient());
 
@@ -9,14 +12,34 @@ class MyTrainClient extends StatefulWidget {
 }
 
 class _TrainState extends State<MyTrainClient> {
-  Image _getTabImage(name) => new Image.asset(
-        "images/" + name + ".png",
-        width: 20,
-        height: 20,
-      );
-
   var tabText = ["首页", "持仓", "行情", "发现", "我的"];
   var tabIcon;
+  var _currentIndex = 0;
+  var _body;
+
+  Image _getTabImage(name) => new Image.asset(
+        "images/" + name + ".png",
+        width: 22,
+        height: 22,
+      );
+
+  TextStyle normalStyle = new TextStyle(
+    color: const Color(0xff333333),
+    fontSize: 12,
+  );
+
+  TextStyle preStyle = new TextStyle(
+    color: const Color(0xffED394D),
+    fontSize: 12,
+  );
+
+  Text _getTabText(index) => new Text(
+        tabText[index],
+        style: index == _currentIndex ? preStyle : normalStyle,
+      );
+
+  Image _getTabIcon(index) =>
+      index == _currentIndex ? tabIcon[index][1] : tabIcon[index][0];
 
   void _initData() {
     if (null == tabIcon) {
@@ -25,9 +48,20 @@ class _TrainState extends State<MyTrainClient> {
         [_getTabImage("order"), _getTabImage("order_pre")],
         [_getTabImage("market"), _getTabImage("market_pre")],
         [_getTabImage("find"), _getTabImage("find_pre")],
-        [_getTabImage("mine"), _getTabImage("imine_pre")],
+        [_getTabImage("mine"), _getTabImage("mine_pre")],
       ];
     }
+
+    _body = new IndexedStack(
+      children: <Widget>[
+        new HomePage(tabText[0]),
+        new TempPage(tabText[1]),
+        new TempPage(tabText[2]),
+        new TempPage(tabText[3]),
+        new TrainDemoPage(),
+      ],
+      index: _currentIndex,
+    );
   }
 
   @override
@@ -44,29 +78,49 @@ class _TrainState extends State<MyTrainClient> {
 //
       home: new Scaffold(
         appBar: new AppBar(
-          title: Text("appbar"),
+          title: new Center(
+            child: new Text(
+              tabText[_currentIndex],
+              style: new TextStyle(
+                fontSize: 18,
+              ),
+            ),
+          ),
         ),
-        body: new Center(
-          child: Text("center"),
-        ),
+        body: _body,
+//        body: new Center(
+//          child: _getTabText(_currentIndex),
+//        ),
+
         bottomNavigationBar: new CupertinoTabBar(
           items: <BottomNavigationBarItem>[
             new BottomNavigationBarItem(
-              icon: tabIcon[0][0],
+              icon: _getTabIcon(0),
+              title: _getTabText(0),
             ),
             new BottomNavigationBarItem(
-              icon: tabIcon[1][0],
+              icon: _getTabIcon(1),
+              title: _getTabText(1),
             ),
             new BottomNavigationBarItem(
-              icon: tabIcon[2][0],
+              icon: _getTabIcon(2),
+              title: _getTabText(2),
             ),
             new BottomNavigationBarItem(
-              icon: tabIcon[3][0],
+              icon: _getTabIcon(3),
+              title: _getTabText(3),
             ),
             new BottomNavigationBarItem(
-              icon: tabIcon[4][0],
+              icon: _getTabIcon(4),
+              title: _getTabText(4),
             ),
           ],
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
         ),
       ),
     );

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first/AnimationRoute.dart';
-import 'package:flutter_first/CanvasPaintRoute.dart';
-import 'package:flutter_first/CustomScrollViewRoute.dart';
-import 'package:flutter_first/ImageRoute.dart';
-import 'package:flutter_first/InfiniteListView.dart';
-import 'package:flutter_first/ListViewDetail.dart';//详情
-import 'package:flutter_first/LoginRoute.dart';
-import 'package:flutter_first/MixListView.dart';
-import 'package:flutter_first/ScreenUtilRoute.dart';
-import 'package:flutter_first/ScrollControllerRoute.dart';
-import 'package:flutter_first/SimpleGridView.dart';
-import 'package:flutter_first/SimpleHttp.dart';
-import 'package:flutter_first/WidgetChangeRoute.dart';
+import 'package:flutter_first/trainpages/AnimationRoute.dart';
+import 'package:flutter_first/trainpages/CanvasPaintRoute.dart';
+import 'package:flutter_first/trainpages/CustomScrollViewRoute.dart';
+import 'package:flutter_first/trainpages/ImageRoute.dart';
+import 'package:flutter_first/trainpages/InfiniteListView.dart';
+import 'package:flutter_first/trainpages/ListViewDetail.dart';//详情
+import 'package:flutter_first/trainpages/LoginRoute.dart';
+import 'package:flutter_first/trainpages/MixListView.dart';
+import 'package:flutter_first/trainpages/ScreenUtilRoute.dart';
+import 'package:flutter_first/trainpages/ScrollControllerRoute.dart';
+import 'package:flutter_first/trainpages/SimpleGridView.dart';
+import 'package:flutter_first/trainpages/SimpleHttp.dart';
+import 'package:flutter_first/trainpages/WidgetChangeRoute.dart';
 
 
-class TrainDemoPages extends StatelessWidget {
+class TrainDemoPage extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,8 @@ class TrainDemoPages extends StatelessWidget {
       },
     );
   }
+
+  TrainDemoPage();
 }
 
 class MyTrainDemoPage extends StatefulWidget {
@@ -70,9 +73,9 @@ class _MyTrainDemoState extends State<MyTrainDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+//      appBar: AppBar(
+//        title: Text(widget.title),
+//      ),
       body: SingleChildScrollView(
 //        child: SingleChildScrollView(
         padding: EdgeInsets.only(bottom: 50),

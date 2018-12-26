@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter_first/ListViewDetail.dart';
+import 'package:flutter_first/trainpages/ListViewDetail.dart';
 
 class InfiniteListView extends StatefulWidget {
   @override
