@@ -4,7 +4,7 @@ import 'package:flutter_first/trainpages/CanvasPaintRoute.dart';
 import 'package:flutter_first/trainpages/CustomScrollViewRoute.dart';
 import 'package:flutter_first/trainpages/ImageRoute.dart';
 import 'package:flutter_first/trainpages/InfiniteListView.dart';
-import 'package:flutter_first/trainpages/ListViewDetail.dart';//详情
+import 'package:flutter_first/trainpages/ListViewDetail.dart'; //详情
 import 'package:flutter_first/trainpages/LoginRoute.dart';
 import 'package:flutter_first/trainpages/MixListView.dart';
 import 'package:flutter_first/trainpages/ScreenUtilRoute.dart';
@@ -13,9 +13,7 @@ import 'package:flutter_first/trainpages/SimpleGridView.dart';
 import 'package:flutter_first/trainpages/SimpleHttp.dart';
 import 'package:flutter_first/trainpages/WidgetChangeRoute.dart';
 
-
 class TrainDemoPage extends StatelessWidget {
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,7 @@ class TrainDemoPage extends StatelessWidget {
         accentColor: Colors.cyan[600],
 //        primarySwatch: Colors.blue,
       ),
-      home: MyTrainDemoPage(title: ' Home Page'),
+      home: MyTrainDemoPage(title: '我的'),
       routes: {
         "ScreenUtilRoute": (context) => ScreenUtilRoute(),
         "imageRoute": (context) => ImageRoute(),
@@ -73,9 +71,10 @@ class _MyTrainDemoState extends State<MyTrainDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text(widget.title),
-//      ),
+      appBar: AppBar(
+          title: new Center(
+        child: Text(widget.title),
+      )),
       body: SingleChildScrollView(
 //        child: SingleChildScrollView(
         padding: EdgeInsets.only(bottom: 50),
@@ -304,9 +303,9 @@ class NewRoute extends StatelessWidget {
               children: str
                   .split("")
                   .map((c) => Text(
-                c,
-                textScaleFactor: 2.0,
-              ))
+                        c,
+                        textScaleFactor: 2.0,
+                      ))
                   .toList(),
             ),
           ),
