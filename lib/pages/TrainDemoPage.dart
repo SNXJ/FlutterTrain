@@ -25,7 +25,7 @@ class TrainDemoPage extends StatelessWidget {
         accentColor: Colors.cyan[600],
 //        primarySwatch: Colors.blue,
       ),
-      home: MyTrainDemoPage(title: '我的'),
+      home: MyTrainDemoPage(title: '发现'),
       routes: {
         "ScreenUtilRoute": (context) => ScreenUtilRoute(),
         "imageRoute": (context) => ImageRoute(),
@@ -73,7 +73,12 @@ class _MyTrainDemoState extends State<MyTrainDemoPage> {
     return Scaffold(
       appBar: AppBar(
           title: new Center(
-        child: Text(widget.title),
+        child: Text(
+          widget.title,
+          style: new TextStyle(
+            fontSize: 18,
+          ),
+        ),
       )),
       body: SingleChildScrollView(
 //        child: SingleChildScrollView(
