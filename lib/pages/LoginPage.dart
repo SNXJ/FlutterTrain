@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first/net/NetManger.dart';
 
 class LoginPage extends StatefulWidget {
   String title;
@@ -29,6 +30,9 @@ class _LoginPageState extends State<LoginPage> {
     print("++++++++++++++++登录成功");
     //TODO login
 //    Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("登录成功")));
+
+  new NetManger().instance();
+
   }
 
   @override

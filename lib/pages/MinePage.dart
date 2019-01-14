@@ -35,6 +35,7 @@ class _MinePageState extends State<MinePage> {
                         image: AssetImage("images/avatar.png"),
                         width: 80,
                       ),
+                      Container(height: 10,),
                       Text(
                         "点击登录",
                         style: new TextStyle(
