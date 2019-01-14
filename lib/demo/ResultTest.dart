@@ -1,5 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
+
+  ///手动处理
+
 @JsonSerializable()
 class ResultTest extends Object {
 
