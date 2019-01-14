@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_first/Models/ResultModel.dart';
-import 'package:flutter_first/models/TokenResponse.dart';
-import 'package:flutter_first/models/User.dart';
+import 'package:flutter_first/models/ResultModel.dart';
 
 class NetManger {
   NetManger netManger;
@@ -42,9 +40,13 @@ class NetManger {
 
 
     response = await dio.post("oauth/access_token", data: mapOuter);
-    ResultModel result = new ResultModel.fromJson(response.data);
+//    ResultModel result = new ResultModel.fromMap(response.data);
 
-    print("======data=====" + response.data.toString());
+//    var map = new JsonDecoder().convert(response.data);
+    ResultModel result = ResultModel.fromMap(response.data);
+
+
+    print("====j==data=====" + response.data.toString());
     print("=====ret======" + result.ret.toString());
     print("======token=====" + result.response.token.toString());
     print("=====uid======" + result.response.uid.toString());

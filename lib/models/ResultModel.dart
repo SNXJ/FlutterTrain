@@ -1,24 +1,44 @@
-import 'package:flutter_first/models/TokenResponse.dart';
-import 'package:json_annotation/json_annotation.dart';
+class ResultModel {
+  int ret;
+  int benchmark;
+  ResponseBean response;
 
-@JsonSerializable()
-class ResultModel extends Object {
+  static ResultModel fromMap(Map<String, dynamic> map) {
+    ResultModel temp = new ResultModel();
+    temp.ret = map['ret'];
+    temp.benchmark = map['benchmark'];
+    temp.response = ResponseBean.fromMap(map['response']);
+    return temp;
+  }
 
-  final int ret;
-  final TokenResponse response;
-  final int benchmark;
+  static List<ResultModel> fromMapList(dynamic mapList) {
+    List<ResultModel> list = new List(mapList.length);
+    for (int i = 0; i < mapList.length; i++) {
+      list[i] = fromMap(mapList[i]);
+    }
+    return list;
+  }
 
-  ResultModel(this.ret, this.benchmark, this.response);
+}
 
-  ResultModel.fromJson(Map<String, dynamic> json)
-      : ret = json['ret'],
-        //response = json['response'],
-        response = TokenResponse.fromJson(json['response']),
-        benchmark = json['benchmark'];
+class ResponseBean {
+  String token;
+  int uid;
+  int validtime;
 
-  Map<String, dynamic> toJson() => {
-        'ret': ret,
-        'response': response,
-        'benchmark': benchmark,
-      };
+  static ResponseBean fromMap(Map<String, dynamic> map) {
+    ResponseBean responseBean = new ResponseBean();
+    responseBean.token = map['token'];
+    responseBean.uid = map['uid'];
+    responseBean.validtime = map['validtime'];
+    return responseBean;
+  }
+
+  static List<ResponseBean> fromMapList(dynamic mapList) {
+    List<ResponseBean> list = new List(mapList.length);
+    for (int i = 0; i < mapList.length; i++) {
+      list[i] = fromMap(mapList[i]);
+    }
+    return list;
+  }
 }
