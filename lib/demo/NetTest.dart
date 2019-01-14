@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_first/Models/ResultModel.dart';
+import 'package:flutter_first/demo/ResultTest.dart';
 
-class NetManger {
-  NetManger netManger;
+class NetTest {
+  NetTest netManger;
   Dio dio;
   static const CONTENT_TYPE_JSON = "application/json";
   static const CONTENT_TYPE_FORM = "application/x-www-form-urlencoded";
@@ -37,9 +37,8 @@ class NetManger {
       "data": mapInner
     };
 
-
     response = await dio.post("oauth/access_token", data: mapOuter);
-    ResultModel result = new ResultModel.fromJson(response.data);
+    ResultTest result = new ResultTest.fromJson(response.data);
 
     print("======data=====" + response.data.toString());
     print("=====ret======" + result.ret.toString());
