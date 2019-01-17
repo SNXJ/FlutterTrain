@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first/dao/UserDao.dart';
+import 'package:flutter_first/models/ResultModel.dart';
+import 'package:flutter_first/net/API.dart';
 import 'package:flutter_first/net/NetManger.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController userController = new TextEditingController(text: "");
   TextEditingController pwdController = new TextEditingController(text: "");
 
-  _login(BuildContext context) {
+  _login(BuildContext context) async {
     String userName = userController.text.trim();
     String pwd = pwdController.text.trim();
 //    print("$userName+++login++$pwd");
@@ -29,18 +32,14 @@ class _LoginPageState extends State<LoginPage> {
     }
     print("++++++++++++++++登录成功");
     //TODO login
-//    Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("登录成功")));
 
-  new NetManger().instance();
-
+    var response = await NetManger.doPost(Api.ACCESS_TOKEN, null);
+    ResultModel result = ResultModel.fromMap(response);
+    print("++++++++++++++++res=====" + result.token.toString());
   }
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("登录"),
