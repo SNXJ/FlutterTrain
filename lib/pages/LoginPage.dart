@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first/dao/UserDao.dart';
 import 'package:flutter_first/models/ResultModel.dart';
+import 'package:flutter_first/models/User.dart';
+import 'package:flutter_first/models/UserInfo.dart';
 import 'package:flutter_first/net/API.dart';
 import 'package:flutter_first/net/NetManger.dart';
 
@@ -14,6 +16,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  static Map mapInner = {
+    "mobile": "18141906652",
+    "password": "0000",
+    "push_id": "100d855909689602a27"
+  };
+
+  Map mapOuter = {
+    "client_id": "7",
+    "token": "xxxxxx",
+    "user_id": "0",
+    "uuid": "1545708413075-9099610000-7074710000",
+    "version": "1.0.1",
+    "app_id": "6",
+    "data": mapInner
+  };
+
   String title;
 
   TextEditingController userController = new TextEditingController(text: "");
@@ -30,12 +48,19 @@ class _LoginPageState extends State<LoginPage> {
 //
       return;
     }
-    print("++++++++++++++++登录成功");
     //TODO login
+    var response = await NetManger.doPost(Api.LOGIN_URL, mapOuter);
+    if(null!=response){
 
-    var response = await NetManger.doPost(Api.ACCESS_TOKEN, null);
-    ResultModel result = ResultModel.fromMap(response);
-    print("++++++++++++++++res=====" + result.token.toString());
+    UserInfo userInfo = UserInfo.fromMap(response);
+
+    if (userInfo != null) {
+      print("++++++++++++++++res=====" + userInfo.data.nickname.toString());
+    } else {
+      print("++++++++++++++++res=====null");
+    }
+
+    }
   }
 
   @override

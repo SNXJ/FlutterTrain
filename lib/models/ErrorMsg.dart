@@ -5,7 +5,9 @@ class ErrorMsg {
   static ErrorMsg fromMap(Map<String, dynamic> map) {
     ErrorMsg responseBean = new ErrorMsg();
     responseBean.message = map['message'];
-    responseBean.data = DataBean.fromMap(map['data']);
+    if (null != map['data']) {
+      responseBean.data = DataBean.fromMap(map['data']);
+    }
     return responseBean;
   }
 
@@ -19,7 +21,7 @@ class ErrorMsg {
 }
 
 class DataBean {
-  String status_code;
+  int status_code;
 
   static DataBean fromMap(Map<String, dynamic> map) {
     DataBean dataBean = new DataBean();
