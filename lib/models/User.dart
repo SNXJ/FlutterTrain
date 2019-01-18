@@ -1,22 +1,22 @@
 class User {
   String nickname;
   String token;
-  int user_id;
-  int mobile;
+  String user_id;
+  String mobile;
   int token_end_time;
-  int count_subject;
+  String count_subject;
   List<AppListBean> app;
 
   static User fromMap(Map<String, dynamic> map) {
-    User dataBean = new User();
-    dataBean.nickname = map['nickname'];
-    dataBean.token = map['token'];
-    dataBean.user_id = map['user_id'];
-    dataBean.mobile = map['mobile'];
-    dataBean.token_end_time = map['token_end_time'];
-    dataBean.count_subject = map['count_subject'];
-    dataBean.app = AppListBean.fromMapList(map['app']);
-    return dataBean;
+    User temp = new User();
+    temp.nickname = map['nickname'];
+    temp.token = map['token'];
+    temp.user_id = map['user_id'];
+    temp.mobile = map['mobile'];
+    temp.token_end_time = map['token_end_time'];
+    temp.count_subject = map['count_subject'];
+    temp.app = AppListBean.fromMapList(map['app']);
+    return temp;
   }
 
   static List<User> fromMapList(dynamic mapList) {
@@ -26,12 +26,13 @@ class User {
     }
     return list;
   }
+
 }
 
 class AppListBean {
-  int app_id;
-  int is_lock;
-  int mobile;
+  String app_id;
+  String is_lock;
+  String mobile;
 
   static AppListBean fromMap(Map<String, dynamic> map) {
     AppListBean appListBean = new AppListBean();
