@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first/Utils/DialogUtil.dart';
 import 'package:flutter_first/dao/UserDao.dart';
 import 'package:flutter_first/models/ResultModel.dart';
 import 'package:flutter_first/models/User.dart';
 import 'package:flutter_first/models/UserInfo.dart';
 import 'package:flutter_first/net/API.dart';
-import 'package:flutter_first/net/NetManger.dart';
+import 'package:flutter_first/net/NetManager.dart';
 
 class LoginPage extends StatefulWidget {
   String title;
@@ -16,12 +17,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  static Map mapInner = {
-    "mobile": "18141906652",
-    "password": "0000",
-    "push_id": "100d855909689602a27"
-  };
-
   Map mapOuter = {
     "client_id": "7",
     "token": "xxxxxx",
@@ -29,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
     "uuid": "1545708413075-9099610000-7074710000",
     "version": "1.0.1",
     "app_id": "6",
-    "data": mapInner
+//    "data": mapInner
   };
 
   String title;
@@ -38,29 +33,31 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController pwdController = new TextEditingController(text: "");
 
   _login(BuildContext context) async {
-    String userName = userController.text.trim();
-    String pwd = pwdController.text.trim();
-//    print("$userName+++login++$pwd");
-    if (userName.isEmpty || pwd.isEmpty) {
+    String _userName = userController.text.trim();
+    String _pwd = pwdController.text.trim();
+    if (_userName.isEmpty || _pwd.isEmpty) {
       print("++++++++++++账号或密码不能为空");
-//      Scaffold.of(context)
-//          .showSnackBar(new SnackBar(content: new Text("账号或密码不能为空")));//Scaffold原因无效
-//
+      DialogUtil.showToastDialog(context, "账号或密码不能为空");
       return;
     }
-    //TODO login
-    var response = await NetManger.doPost(Api.LOGIN_URL, mapOuter);
-    if(null!=response){
+    UserInfo userInfo = await UserDao.login(context, Api.LOGIN_URL, mapOuter);
 
-    UserInfo userInfo = UserInfo.fromMap(response);
+    Map mapInner = {
+      "mobile": _userName,
+      "password": _pwd,
+      "push_id": "100d855909689602a27"
+    };
+    mapOuter["data"] = mapInner;
 
     if (userInfo != null) {
+      DialogUtil.showToastDialog(context, "登录成功");
       print("++++++++++++++++res=====" + userInfo.data.nickname.toString());
     } else {
+      DialogUtil.showToastDialog(context, "网络异常请重新尝试");
       print("++++++++++++++++res=====null");
     }
-
-    }
+//
+//    }
   }
 
   @override
