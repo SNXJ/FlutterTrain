@@ -1,14 +1,14 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_first/Utils/DialogUtil.dart';
 import 'package:flutter_first/dao/UserDao.dart';
 import 'package:flutter_first/models/CommonResult.dart';
 import 'package:flutter_first/models/ErrorMsg.dart';
 import 'package:flutter_first/net/Api.dart';
 import 'package:connectivity/connectivity.dart';
 
-class NetManger {
+class NetManager {
   static const CONTENT_TYPE_JSON = "application/json";
   static const CONTENT_TYPE_FORM = "application/x-www-form-urlencoded";
   static String token;
@@ -20,7 +20,7 @@ class NetManger {
     responseType: ResponseType.JSON,
   );
 
-  static doPost(url, paramMap) async {
+  static doPost(context, url, paramMap) async {
     // 或者通过传递一个 `options`来创建dio实例
     Dio dio = new Dio(options);
     //没有网络
@@ -29,6 +29,9 @@ class NetManger {
       print("=====检查网络======");
       return null;
     }
+    DialogUtil.showLoading(context);
+    print("请求url = $url ;paramMap = ${paramMap.toString()}");
+
     Response response;
     try {
       response = await dio.post(url, data: paramMap);
@@ -36,8 +39,10 @@ class NetManger {
       print('请求异常url=$url: e=' + e.toString());
       return null;
     }
+    DialogUtil.cancelDialog(context);
+
     CommonResult commonResult = CommonResult.fromMap(response.data);
-    print("请求url = $url ;paramMap = ${paramMap.toString()}");
+
     print("响应url = $url ;response = ${response.data}");
 
     if (0 == commonResult.ret) {
@@ -45,12 +50,12 @@ class NetManger {
       return commonResult.response;
     } else {
       //错误的
-      _handError(commonResult.response);
+      _handError(context, commonResult.response);
       return null;
     }
   }
 
-  static void _handError(response) {
+  static void _handError(context, response) {
     ErrorMsg errorMsg = ErrorMsg.fromMap(response);
     if (null != errorMsg &&
         errorMsg.data != null &&
@@ -63,7 +68,7 @@ class NetManger {
           errorCode == 403 ||
           errorCode == 500) {
         //getAccessToken();
-        UserDao.getAccessToken();
+        UserDao.getAccessToken(context);
 
         print(
             "==Error_code==${errorMsg.data.status_code}==Error_msg==${errorMsg.message}");
