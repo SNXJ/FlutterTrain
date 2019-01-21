@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first/Utils/DialogUtil.dart';
+import 'package:flutter_first/Utils/UserUtil.dart';
 import 'package:flutter_first/dao/UserDao.dart';
-import 'package:flutter_first/models/ResultModel.dart';
-import 'package:flutter_first/models/User.dart';
 import 'package:flutter_first/models/UserInfo.dart';
-import 'package:flutter_first/net/API.dart';
-import 'package:flutter_first/net/NetManager.dart';
+import 'package:flutter_first/net/Api.dart';
+import 'package:flutter_first/net/Constant.dart';
 
 class LoginPage extends StatefulWidget {
   String title;
@@ -17,16 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  Map mapOuter = {
-    "client_id": "7",
-    "token": "xxxxxx",
-    "user_id": "0",
-    "uuid": "1545708413075-9099610000-7074710000",
-    "version": "1.0.1",
-    "app_id": "6",
-//    "data": mapInner
-  };
-
   String title;
 
   TextEditingController userController = new TextEditingController(text: "");
@@ -40,24 +29,26 @@ class _LoginPageState extends State<LoginPage> {
       DialogUtil.showToastDialog(context, "账号或密码不能为空");
       return;
     }
-    UserInfo userInfo = await UserDao.login(context, Api.LOGIN_URL, mapOuter);
+
+    Map mapOuter = await Constant.getOuterMap();
 
     Map mapInner = {
       "mobile": _userName,
       "password": _pwd,
       "push_id": "100d855909689602a27"
     };
+
     mapOuter["data"] = mapInner;
 
+    UserInfo userInfo = await UserDao.login(context, Api.LOGIN_URL, mapOuter);
+
     if (userInfo != null) {
-      DialogUtil.showToastDialog(context, "登录成功");
-      print("++++++++++++++++res=====" + userInfo.data.nickname.toString());
-    } else {
-      DialogUtil.showToastDialog(context, "网络异常请重新尝试");
-      print("++++++++++++++++res=====null");
+      await UserUtil.setUser(userInfo.data);
+//      DialogUtil.showToastDialog(context, "登录成功");
+//      String phone = await SpUtil.get(Constant.USER_PHONE);
+//      print("++++++++++++++++res=====" + phone);
+      Navigator.pop(context,userInfo.data);
     }
-//
-//    }
   }
 
   @override

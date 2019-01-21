@@ -2,11 +2,14 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_first/Utils/DialogUtil.dart';
+import 'package:flutter_first/Utils/SpUtil.dart';
 import 'package:flutter_first/dao/UserDao.dart';
 import 'package:flutter_first/models/CommonResult.dart';
 import 'package:flutter_first/models/ErrorMsg.dart';
+import 'package:flutter_first/models/ResultModel.dart';
 import 'package:flutter_first/net/Api.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:flutter_first/net/Constant.dart';
 
 class NetManager {
   static const CONTENT_TYPE_JSON = "application/json";
@@ -55,7 +58,7 @@ class NetManager {
     }
   }
 
-  static void _handError(context, response) {
+  static void _handError(context, response) async {
     ErrorMsg errorMsg = ErrorMsg.fromMap(response);
     if (null != errorMsg &&
         errorMsg.data != null &&
@@ -68,12 +71,17 @@ class NetManager {
           errorCode == 403 ||
           errorCode == 500) {
         //getAccessToken();
-        UserDao.getAccessToken(context);
+        ResultModel res = await UserDao.getAccessToken(context);
+        //TODO 存储 token
+        if (res != null) {
+          await SpUtil.save(Constant.ACCESS_TOKEN, res.token.toString());
+        }
 
         print(
             "==Error_code==${errorMsg.data.status_code}==Error_msg==${errorMsg.message}");
       }
     } else {
+      DialogUtil.showToastDialog(context, errorMsg.message.toString());
       print("==Error_msg==${errorMsg.message}");
     }
   }

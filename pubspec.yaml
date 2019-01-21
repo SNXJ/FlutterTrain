@@ -55,7 +55,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/avatar.png
+    - images/head_done.png
+    - images/head_def.png
     - images/demo.png
 
     - images/home.png
