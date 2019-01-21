@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first/Utils/SpUtil.dart';
+import 'package:flutter_first/models/User.dart';
+import 'package:flutter_first/net/Constant.dart';
+import 'package:flutter_first/pages/LogOutPage.dart';
 import 'package:flutter_first/pages/LoginPage.dart';
 
 class MinePage extends StatefulWidget {
@@ -12,14 +16,24 @@ class MinePage extends StatefulWidget {
 
 class _MinePageState extends State<MinePage> {
   String title;
+  String userName;
+  String userPhone;
+  String userID;
+
+  _initData()  {
+    userName =  SpUtil.get(Constant.USER_NAME);
+    userID =  SpUtil.get(Constant.USER_ID);
+    userPhone =  SpUtil.get(Constant.USER_PHONE);
+  }
 
   @override
   Widget build(BuildContext context) {
-//      title: "myapp",
+
+    _initData();
+    print("++++++++$userPhone+++++++++");
+
     return new Scaffold(
-//        appBar: new AppBar(
-//          title: Text(title),
-//        ),
+//
       body: new Center(
         child: Column(
           children: <Widget>[
@@ -32,26 +46,35 @@ class _MinePageState extends State<MinePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Image(
-                        image: AssetImage("images/avatar.png"),
+                        image: (userID == null)
+                            ? AssetImage("images/head_def.png")
+                            : AssetImage("images/head_done.png"),
                         width: 80,
                       ),
-                      Container(height: 10,),
+                      Container(
+                        height: 10,
+                      ),
                       Text(
-                        "点击登录",
+                        userName != null ? userName : "点击登录",
                         style: new TextStyle(
                           color: Colors.white,
                         ),
-                      )
+                      ),
+                      Container(
+                        height: 10,
+                      ),
+                      Text(
+                        userPhone != null ? userPhone : "",
+                        style: new TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
               onTap: () {
-//                print("登录点击+++++++++++++++++++++++++++++++++");
-                Navigator.of(context)
-                    .push(new MaterialPageRoute(builder: (context) {
-                  return new LoginPage("登录");
-                }));
+               userID==null? _gotoLogin(context):_goLoginOut();
               },
             )
           ],
@@ -60,5 +83,33 @@ class _MinePageState extends State<MinePage> {
     );
   }
 
+  _gotoLogin(context) async {
+    User res = await Navigator.of(context)
+        .push(new MaterialPageRoute(builder: (context) {
+      return new LoginPage("登录");
+    }));
+
+    if (res != null) {
+      setState(() {
+
+      });
+    }
+  }
+
   _MinePageState(this.title);
+
+  _goLoginOut() async {
+    User res = await Navigator.of(context)
+        .push(new MaterialPageRoute(builder: (context) {
+      return new LogOutPage("退出");
+    }));
+
+    if (res != null) {
+      setState(() {
+
+      });
+    }
+
+
+  }
 }

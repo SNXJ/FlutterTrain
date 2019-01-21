@@ -51,7 +51,7 @@ class _ImageRouteState extends State<ImageRoute> {
                   width: 100,
                 ),
                 Image.asset(
-                  "images/avatar.png",
+                  "images/head_done.png",
                   width: 60.0,
 //                color: Colors.yellow,
 //                colorBlendMode: BlendMode.difference,

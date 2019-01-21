@@ -76,7 +76,6 @@ class _TrainState extends State<MyTrainClient> {
         accentColor: Colors.cyan[600],
       ),
 
-//
       home: new Scaffold(
         appBar: (_currentIndex != 3
             ? new AppBar(
