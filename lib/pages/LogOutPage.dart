@@ -32,7 +32,7 @@ class _LogOutPageState extends State<LogOutPage> {
       UserUtil.clearUser();
       print("=======退出成功=======");
 //      DialogUtil.showToastDialog(context, msg.message.toString());
-      Navigator.pop(context,"退出成功");
+      Navigator.pop(context, "退出登录");
     }
   }
 
@@ -42,27 +42,24 @@ class _LogOutPageState extends State<LogOutPage> {
       appBar: new AppBar(
         title: new Text("退出登录"),
       ),
-      body: new Container(
-        padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
-        child: Column(
-          children: <Widget>[
-//
-            RaisedButton(
-              padding:
-                  EdgeInsets.only(top: 13, bottom: 13, left: 100, right: 100),
-              color: Colors.blue,
-              child: Text(
-                "退出登录",
-                style: new TextStyle(),
-              ),
-              textColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6)),
-              onPressed: () {
-                _logOut(context);
-              },
-            )
-          ],
+      body: new GestureDetector(
+        onTap: ()=>_logOut(context),
+
+        child: new Container(
+          
+          margin: const EdgeInsets.only(top: 60, left: 30, right: 30),
+          alignment: Alignment.center,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            color: Colors.blue,
+          ),
+          child: Text(
+            "退出登录",
+            style: new TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );

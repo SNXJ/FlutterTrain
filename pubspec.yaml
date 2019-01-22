@@ -74,6 +74,11 @@ flutter:
     - images/mine_pre.png
     - images/mine.png
 
+    - images/mine_integral.png
+    - images/mine_know.png
+    - images/mine_service.png
+    - images/mine_share.png
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

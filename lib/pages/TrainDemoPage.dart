@@ -25,7 +25,7 @@ class TrainDemoPage extends StatelessWidget {
         accentColor: Colors.cyan[600],
 //        primarySwatch: Colors.blue,
       ),
-      home: MyTrainDemoPage(title: '发现'),
+      home: MyTrainDemoPage(title: '订购'),
       routes: {
         "ScreenUtilRoute": (context) => ScreenUtilRoute(),
         "imageRoute": (context) => ImageRoute(),

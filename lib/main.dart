@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_first/pages/DiscoverPage.dart';
 import 'package:flutter_first/pages/HomePage.dart';
 import 'package:flutter_first/pages/MinePage.dart';
 import 'package:flutter_first/pages/TempPage.dart';
@@ -15,7 +16,7 @@ class MyTrainClient extends StatefulWidget {
 class _TrainState extends State<MyTrainClient> {
   var tabText = ["首页", "持仓", "行情", "发现", "我的"];
   var tabIcon;
-  var _currentIndex = 4;
+  var _currentIndex = 3;
   var _body;
 
   Image _getTabImage(name) => new Image.asset(
@@ -57,8 +58,9 @@ class _TrainState extends State<MyTrainClient> {
       children: <Widget>[
         new HomePage(tabText[0]),
         new TempPage(tabText[1]),
-        new TempPage(tabText[2]),
         new TrainDemoPage(),
+        new DiscoverPage(tabText[3]),
+
         new MinePage(tabText[4]),
       ],
       index: _currentIndex,
@@ -77,7 +79,7 @@ class _TrainState extends State<MyTrainClient> {
       ),
 
       home: new Scaffold(
-        appBar: (_currentIndex != 3
+        appBar: (_currentIndex != 2
             ? new AppBar(
                 title: new Center(
                   child: new Text(
