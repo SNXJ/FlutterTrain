@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_first/pages/DiscoverPage.dart';
+import 'package:flutter_first/pages/HangListPage.dart';
 import 'package:flutter_first/pages/HomePage.dart';
 import 'package:flutter_first/pages/MinePage.dart';
 import 'package:flutter_first/pages/TempPage.dart';
@@ -57,10 +58,9 @@ class _TrainState extends State<MyTrainClient> {
     _body = new IndexedStack(
       children: <Widget>[
         new HomePage(tabText[0]),
-        new TempPage(tabText[1]),
+        new HangOrderPage(tabText[1]),
         new TrainDemoPage(),
         new DiscoverPage(tabText[3]),
-
         new MinePage(tabText[4]),
       ],
       index: _currentIndex,
@@ -77,9 +77,8 @@ class _TrainState extends State<MyTrainClient> {
         primaryColor: Colors.lightBlue[800],
         accentColor: Colors.cyan[600],
       ),
-
       home: new Scaffold(
-        appBar: (_currentIndex != 2
+        appBar: (( _currentIndex != 2 &&_currentIndex != 3)
             ? new AppBar(
                 title: new Center(
                   child: new Text(
