@@ -9,17 +9,7 @@ class UserUtil {
     await SpUtil.save(Constant.USER_ID, user.user_id);
   }
 
-//  static getUserName() {
-//    SpUtil.get(Constant.USER_NAME);
-//  }
-//
-//  static getUserPhone() {
-//    SpUtil.get(Constant.USER_PHONE);
-//  }
-//
-//  static getUserID() {
-//    SpUtil.get(Constant.USER_ID);
-//  }
+
 
   static clearUser() async {
     await SpUtil.remove(Constant.USER_NAME);
