@@ -57,11 +57,16 @@ class _MinePageState extends State<MinePage> {
                   child: new Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image(
-                        image: (userID == null)
-                            ? AssetImage("images/head_def.png")
-                            : AssetImage("images/head_done.png"),
+                      Container(
+                        height: 80,
                         width: 80,
+                        child: CircleAvatar(
+                          backgroundImage: (userID == null)
+                              ? AssetImage("images/head_def.png")
+                              : AssetImage("images/head_done.png"),
+//                        width: 80,
+                          radius: 90,
+                        ),
                       ),
                       Container(
                         height: 10,
