@@ -79,6 +79,10 @@ flutter:
     - images/mine_service.png
     - images/mine_share.png
 
+    - images/integral_card_bg.png
+    - images/integral_grade_bg.png
+    - images/integral_grade.png
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
