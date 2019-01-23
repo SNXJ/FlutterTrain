@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_first/pages/DiscoverPage.dart';
-import 'package:flutter_first/pages/HangListPage.dart';
+import 'package:flutter_first/pages/HangOrderPage.dart';
 import 'package:flutter_first/pages/HomePage.dart';
 import 'package:flutter_first/pages/MinePage.dart';
-import 'package:flutter_first/pages/TempPage.dart';
 import 'package:flutter_first/pages/TrainDemoPage.dart';
 
 void main() => runApp(MyTrainClient());
@@ -78,7 +77,7 @@ class _TrainState extends State<MyTrainClient> {
         accentColor: Colors.cyan[600],
       ),
       home: new Scaffold(
-        appBar: (( _currentIndex != 2 &&_currentIndex != 3)
+        appBar: ((_currentIndex != 1 &&  _currentIndex != 2 &&_currentIndex != 3)
             ? new AppBar(
                 title: new Center(
                   child: new Text(

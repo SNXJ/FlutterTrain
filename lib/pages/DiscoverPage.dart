@@ -38,7 +38,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           new DiscoverMallPage(tabText[0]),
           new DiscoverMallPage(tabText[1]),
           new DiscoverMallPage(tabText[2]),
-        ]),
+        ],),
       ),
     );
   }
