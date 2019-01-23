@@ -46,88 +46,91 @@ class _MinePageState extends State<MinePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Color(0xFFF0F1F3),
-      body: new Center(
-        child: Column(
-          children: <Widget>[
-            new GestureDetector(
-              child: new Container(
-                color: Colors.blue,
-                height: 200,
-                child: new Center(
-                  child: new Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        height: 80,
-                        width: 80,
-                        child: CircleAvatar(
-                          backgroundImage: (userID == null)
-                              ? AssetImage("images/head_def.png")
-                              : AssetImage("images/head_done.png"),
+      body: new ListView.separated(
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0) {
+              return _getInfoLayout(context, 0);
+            } else if (index == 1) {
+              return _getMiddleLayout(context, 1);
+            } else {
+              return _getBottomItem(context, index - 2);
+            }
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return index == 1
+                ? Container(
+                    height: 5,
+                    color: Color(0xFFF0F1F3),
+                  )
+                : new Divider(
+                    height: 1,
+                    color: Colors.grey,
+                  );
+          }),
+    );
+  }
+
+  _getInfoLayout(BuildContext context, int index) {
+    return new GestureDetector(
+      child: new Container(
+        color: Colors.blue,
+        height: 200,
+        child: new Center(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: 80,
+                width: 80,
+                child: CircleAvatar(
+                  backgroundImage: (userID == null)
+                      ? AssetImage("images/head_def.png")
+                      : AssetImage("images/head_done.png"),
 //                        width: 80,
-                          radius: 90,
-                        ),
-                      ),
-                      Container(
-                        height: 10,
-                      ),
-                      Text(
-                        userName != null ? userName : "点击登录",
-                        style: new TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      Container(
-                        height: 10,
-                      ),
-                      Text(
-                        userPhone != null ? userPhone : "",
-                        style: new TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
+                  radius: 90,
                 ),
               ),
-              onTap: () {
-                userID == null ? _gotoLogin(context) : _goLoginOut();
-              },
-            ),
-//
-            Container(
-              padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
-              color: Colors.white,
-              child: Flex(
-                direction: Axis.horizontal,
-                children: <Widget>[
-                  _getMiddleItem(context, 0),
-                  _getMiddleItem(context, 1),
-                  _getMiddleItem(context, 2),
-                  _getMiddleItem(context, 3),
-                ],
+              Container(
+                height: 10,
               ),
-            ),
-            Container(
-              height: 5,
-              color: Color(0xFFF0F1F3),
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemBuilder: (BuildContext context, int index) {
-                  return _getBottomItem(context, index);
-                },
-                separatorBuilder: (BuildContext context, int index) =>
-                    new Divider(
-                      height: 1,
-                      color: Colors.grey,
-                    ),
-                itemCount: 3,
-//                itemExtent: 60.0,
+              Text(
+                userName != null ? userName : "点击登录",
+                style: new TextStyle(
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ],
+              Container(
+                height: 10,
+              ),
+              Text(
+                userPhone != null ? userPhone : "",
+                style: new TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
+      ),
+      onTap: () {
+        userID == null ? _gotoLogin(context) : _goLoginOut();
+      },
+    );
+  }
+
+  _getMiddleLayout(BuildContext context, int index) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
+      color: Colors.white,
+      child: Flex(
+        direction: Axis.horizontal,
+        children: <Widget>[
+          _getMiddleItem(context, 0),
+          _getMiddleItem(context, 1),
+          _getMiddleItem(context, 2),
+          _getMiddleItem(context, 3),
+        ],
       ),
     );
   }
@@ -164,6 +167,8 @@ class _MinePageState extends State<MinePage> {
     var id = await SpUtil.get(Constant.USER_ID);
     if (null == id) {
       DialogUtil.showMsgDialog(context, "请先登录");
+    }else{
+      DialogUtil.showToastDialog(context, "敬请期待...");
     }
   }
 
@@ -191,6 +196,7 @@ class _MinePageState extends State<MinePage> {
       ),
       onTap: () {
         _isLogin(context);
+
       },
     );
   }

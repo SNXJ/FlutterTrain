@@ -134,6 +134,7 @@ class _DiscoverMallState extends State<DiscoverMallPage> {
 
   _getItemTop() {
     return Container(
+//      height: 272,
       color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -141,8 +142,12 @@ class _DiscoverMallState extends State<DiscoverMallPage> {
           new Padding(
             padding: EdgeInsets.only(top: 10, right: 10),
             child: new Stack(
+
               children: <Widget>[
                 new Image(
+                  fit:BoxFit.fill,
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
                   image: AssetImage("images/integral_card_bg.png"),
                 ),
                 new Positioned(
