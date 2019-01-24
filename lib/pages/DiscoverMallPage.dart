@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first/Utils/DialogUtil.dart';
 
+// ignore: must_be_immutable
 class DiscoverMallPage extends StatefulWidget {
   String title;
 
@@ -35,8 +36,8 @@ class _DiscoverMallState extends State<DiscoverMallPage> {
   _getItem(context, index) {
     return GestureDetector(
       onTap: () {
-        print("====${index}===");
-        DialogUtil.showToastDialog(context, "点击第${index}项");
+        print("====$index===");
+        DialogUtil.showToastDialog(context, "点击第$index项");
       },
       child: Container(
         color: Colors.white,

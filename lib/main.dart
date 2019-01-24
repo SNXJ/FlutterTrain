@@ -16,7 +16,7 @@ class MyTrainClient extends StatefulWidget {
 class _TrainState extends State<MyTrainClient> {
   var tabText = ["首页", "持仓", "行情", "发现", "我的"];
   var tabIcon;
-  var _currentIndex = 3;
+  var _currentIndex = 0;
   var _body;
 
   Image _getTabImage(name) => new Image.asset(
