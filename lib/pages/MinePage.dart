@@ -75,7 +75,7 @@ class _MinePageState extends State<MinePage> {
     return new GestureDetector(
       child: new Container(
         color: Colors.blue,
-        height: 200,
+        height: 160,
         child: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
