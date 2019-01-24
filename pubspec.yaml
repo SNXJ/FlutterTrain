@@ -34,6 +34,8 @@ dependencies:
 
   flutter_screenutil: ^0.4.2  #屏幕适配
 
+  flutter_swiper: ^1.1.4 #轮播
+
 
 
 
@@ -61,6 +63,10 @@ flutter:
 
     - images/home.png
     - images/home_pre.png
+
+    - images/home_profit_list.png
+    - images/home_new_school.png
+    - images/home_profit_icon.png
 
     - images/order_pre.png
     - images/order.png
