@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first/Utils/DialogUtil.dart';
+import 'package:flutter_first/pages/CommonWebPage.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePage extends StatefulWidget {
@@ -114,7 +115,13 @@ class _HomePageState extends State<HomePage> {
           ],
         ));
   }
-
+  getLink(url,title) {
+//    return () {
+      Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) {
+        return new CommonWebPage(title: title, url: url);
+      }));
+//    };
+  }
   _getBanner() {
     return new Column(
       children: <Widget>[
@@ -142,7 +149,9 @@ class _HomePageState extends State<HomePage> {
               controller: new SwiperController(),
               autoplayDelay: 3000,
               onTap: (index) {
-                print("=====$index====");
+                getLink(linkUrl[index],"活动详情");
+
+                print("=====$index==11==");
               }),
         ),
         _getBannerBottom(),
