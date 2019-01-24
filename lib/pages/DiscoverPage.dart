@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first/pages/DiscoverLearnPage.dart';
 import 'package:flutter_first/pages/DiscoverMallPage.dart';
 
 class DiscoverPage extends StatefulWidget {
@@ -19,13 +20,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return new DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar:
-        new AppBar(
+        appBar: new AppBar(
           title: new TabBar(
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: Colors.white,
               labelColor: Colors.white,
-              unselectedLabelColor:Color(0xFF999999),
+              unselectedLabelColor: Color(0xFF999999),
               labelStyle: new TextStyle(fontSize: 15),
               unselectedLabelStyle: new TextStyle(fontSize: 14),
               tabs: [
@@ -34,14 +34,22 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 new Tab(text: tabText[2]),
               ]),
         ),
-        body: new TabBarView(children: [
-          new DiscoverMallPage(tabText[0]),
-          new DiscoverMallPage(tabText[1]),
-          new DiscoverMallPage(tabText[2]),
-        ],),
+        body: new TabBarView(
+          children: [
+            new DiscoverMallPage(tabText[0]),
+            new DiscoverLearnPage(),
+            new DiscoverMallPage(tabText[2]),
+          ],
+        ),
       ),
     );
   }
+
+//  _getLeanSapce() {
+//    new MaterialPageRoute(builder: (ctx) {
+//      return new DiscoverLearnPage();
+//    });
+//  }
 
   _DiscoverPageState(this.title);
 }
