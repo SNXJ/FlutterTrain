@@ -20,8 +20,10 @@ class _HangOrderPageState extends State<HangOrderPage> {
   @override
   Widget build(BuildContext context) {
     return new DefaultTabController(
+
       length:  tabText.length,
       child: Scaffold(
+        backgroundColor: Color(0xFFF0F1F3),
         appBar: new AppBar(
           title: new TabBar(
             isScrollable: true,
@@ -35,10 +37,15 @@ class _HangOrderPageState extends State<HangOrderPage> {
 //            controller:  _tabController,
           ),
         ),
-        body: ListView.separated(
+        body:
+        ListView.separated(
             itemBuilder: (context, index) {
               var isRed=((index%2==0)?true:false);
-              return new ListTile(
+              return
+                Container(
+                  color: Colors.white,
+                child:
+                new ListTile(
                 dense: true,
                 contentPadding: EdgeInsets.all(10),
                 leading: new Column(
@@ -81,7 +88,7 @@ class _HangOrderPageState extends State<HangOrderPage> {
                     ),
                   ),
                 ),
-              );
+              ),);
             },
             separatorBuilder: (context, index) => new Divider(
                   height: 1,

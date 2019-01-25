@@ -167,38 +167,28 @@ class _MinePageState extends State<MinePage> {
     var id = await SpUtil.get(Constant.USER_ID);
     if (null == id) {
       DialogUtil.showMsgDialog(context, "请先登录");
-    }else{
+    } else {
       DialogUtil.showToastDialog(context, "敬请期待...");
     }
   }
 
   _getBottomItem(BuildContext context, int index) {
-    return GestureDetector(
-      child: new Container(
-        color: Colors.white,
-        child: new Padding(
-          padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  text2[index],
-                  style: new TextStyle(fontSize: 14, color: Colors.blue),
-                ),
-              ),
-              Icon(
-                Icons.navigate_next,
-                color: Colors.blue,
-              )
-            ],
-          ),
+    return Container(
+      color: Colors.white,
+      child: new ListTile(
+        dense: true,
+        leading: Text(
+          text2[index],
+          style: new TextStyle(fontSize: 14, color: Colors.blue),
         ),
+        trailing: Icon(
+          Icons.navigate_next,
+          color: Colors.blue,
+        ),
+        onTap: () => _gotoLogin(context),
       ),
-      onTap: () {
-        _isLogin(context);
-
-      },
     );
+//
   }
 
   _gotoLogin(context) async {
