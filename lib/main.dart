@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_first/demo/ListViewTestPage.dart';
 import 'package:flutter_first/pages/DiscoverPage.dart';
 import 'package:flutter_first/pages/HangOrderPage.dart';
 import 'package:flutter_first/pages/HomePage.dart';
 import 'package:flutter_first/pages/MinePage.dart';
 import 'package:flutter_first/pages/OrdePage.dart';
-import 'package:flutter_first/pages/TrainDemoPage.dart';
 
 void main() => runApp(MyTrainClient());
 
@@ -18,7 +16,7 @@ class MyTrainClient extends StatefulWidget {
 class _TrainState extends State<MyTrainClient> {
   var tabText = ["首页", "持仓", "行情", "发现", "我的"];
   var tabIcon;
-  var _currentIndex = 2;
+  var _currentIndex = 0;
   var _body;
 
   Image _getTabImage(name) => new Image.asset(
@@ -60,7 +58,6 @@ class _TrainState extends State<MyTrainClient> {
       children: <Widget>[
         new HomePage(tabText[0]),
         new HangOrderPage(tabText[1]),
-//        new TrainDemoPage(),
         new OrderPage(),
         new DiscoverPage(tabText[3]),
         new MinePage(tabText[4]),
@@ -83,12 +80,11 @@ class _TrainState extends State<MyTrainClient> {
         appBar:
             ((_currentIndex != 1 && _currentIndex != 2 && _currentIndex != 3)
                 ? new AppBar(
-                    title: new Center(
-                      child: new Text(
-                        tabText[_currentIndex],
-                        style: new TextStyle(
-                          fontSize: 18,
-                        ),
+                    centerTitle: true,
+                    title: new Text(
+                      tabText[_currentIndex],
+                      style: new TextStyle(
+                        fontSize: 18,
                       ),
                     ),
                   )
