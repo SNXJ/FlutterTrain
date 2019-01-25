@@ -10,7 +10,7 @@
 - [Flutter Doc 英文版](https://flutter.io/docs)
 
 
-# 功能
+## 功能
 
 - [x] 登录（使用测试账号）
 - [x] 首页
@@ -23,21 +23,22 @@
 
 
 
-# 截图
+## 截图
 
 
 <div>
-    <img src='./screenshots/home.jpg' width=280>
-    <img src='./screenshots/hang_order.jpg' width=280>
-    <img src='./screenshots/order_trade.jpg' width=280>
+    <img src='./screenshots/home.jpg' width=280  height = 580>
+    <img src='./screenshots/hang_order.jpg' width=280 height = 580>
+    <img src='./screenshots/order_trade.jpg' width=280  height = 580>
 </div>
 <div>
-    <img src='./screenshots/discover_mall.jpg' width=280>
-    <img src='./screenshots/mine.jpg' width=280>
+    <img src='./screenshots/discover_mall.jpg' width=280  height = 580>
+    <img src='./screenshots/mine.jpg' width=280  height = 580>
+    <img src='./screenshots/login.jpg' width=280  height = 580>
 </div>
 
 
-# LICENSE
+## LICENSE
 The MIT License (MIT)
 
 Copyright (c) 2019 SNXJ
