@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_first/pages/DiscoverLearnPage.dart';
 import 'package:flutter_first/pages/DiscoverMallPage.dart';
-
-class DiscoverPage extends StatefulWidget {
+import 'package:flutter_first/pages/OrdeTradPage.dart';
+///订购
+class OrderPage extends StatefulWidget {
   String title;
 
-  DiscoverPage(this.title);
+  OrderPage();
 
   @override
-  _DiscoverPageState createState() => new _DiscoverPageState(title);
+  _OrderPagePageState createState() => new _OrderPagePageState(title);
 }
 
-class _DiscoverPageState extends State<DiscoverPage> {
-  var tabText = ["我的圈子", "学习专区", "积分商城"];
+class _OrderPagePageState extends State<OrderPage> {
+  var tabText = ["买卖", "订单","约购", "交易","资金",];
   String title;
 
   @override
@@ -32,24 +33,25 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 new Tab(text: tabText[0]),
                 new Tab(text: tabText[1]),
                 new Tab(text: tabText[2]),
+                new Tab(text: tabText[3]),
+                new Tab(text: tabText[4]),
               ]),
         ),
         body: new TabBarView(
           children: [
-            new DiscoverMallPage(tabText[0]),
-            new DiscoverLearnPage(),
-            new DiscoverMallPage(tabText[2]),
+          new  OrdeTradPage(""),
+          new  OrdeTradPage(""),
+          new  OrdeTradPage(""),
+          new  OrdeTradPage(""),
+          new  OrdeTradPage(""),
+
           ],
         ),
       ),
     );
   }
 
-//  _getLeanSapce() {
-//    new MaterialPageRoute(builder: (ctx) {
-//      return new DiscoverLearnPage();
-//    });
-//  }
+//
 
-  _DiscoverPageState(this.title);
+  _OrderPagePageState(this.title);
 }
