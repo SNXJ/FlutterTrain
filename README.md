@@ -1,4 +1,4 @@
-# flutter_first
+# FlutterTrain
 
 
 这是Flutter个人练习项目
@@ -22,16 +22,18 @@
 - [ ] 未完待续...
 
 
-##截图
+
+# 截图
+
 
 <div>
-    <img src='./screenshorts/home.jpg' width=280>
-    <img src='./screenshots/hang_order.png' width=280>
-    <img src='./screenshots/order_trade.png' width=280>
+    <img src='./screenshots/home.jpg' width=280>
+    <img src='./screenshots/hang_order.jpg' width=280>
+    <img src='./screenshots/order_trade.jpg' width=280>
 </div>
 <div>
-    <img src='./screenshorts/discover_mall.jpg' width=280>
-    <img src='./screenshots/mine.png' width=280>
+    <img src='./screenshots/discover_mall.jpg' width=280>
+    <img src='./screenshots/mine.jpg' width=280>
 </div>
 
 
