@@ -8,6 +8,7 @@
 - [Flutter SDK](https://docs.flutter.io/index.html)
 - [Flutter Doc 中文版](https://flutterchina.club/docs/)
 - [Flutter Doc 英文版](https://flutter.io/docs)
+- [Dart 中文版](https://www.kancloud.cn/marswill/dark2_document/709087)
 
 
 ## 功能
@@ -27,14 +28,14 @@
 
 
 <div>
-    <img src='./screenshots/home.jpg' width=280  height = 580>
-    <img src='./screenshots/hang_order.jpg' width=280 height = 580>
-    <img src='./screenshots/order_trade.jpg' width=280  height = 580>
+    <img src='./screenshots/home.jpg' width=280  height = 520>
+    <img src='./screenshots/hang_order.jpg' width=280 height = 520>
+    <img src='./screenshots/order_trade.jpg' width=280  height = 520>
 </div>
 <div>
-    <img src='./screenshots/discover_mall.jpg' width=280  height = 580>
-    <img src='./screenshots/mine.jpg' width=280  height = 580>
-    <img src='./screenshots/login.jpg' width=280  height = 580>
+    <img src='./screenshots/discover_mall.jpg' width=280  height = 520>
+    <img src='./screenshots/mine.jpg' width=280  height = 520>
+    <img src='./screenshots/login.jpg' width=280  height = 520>
 </div>
 
 
