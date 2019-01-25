@@ -311,6 +311,7 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () => {},
+              dense: true,
               leading: new Image(
                 width: 32,
                 height: 32,

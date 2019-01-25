@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//未使用
 class HangListPage extends StatefulWidget {
   String title;
 
@@ -14,11 +14,7 @@ class _HangListPageState extends State<HangListPage> {
 
   @override
   Widget build(BuildContext context) {
-//      title: "myapp",
     return new Scaffold(
-//        appBar: new AppBar(
-//          title: Text(title),
-//        ),
       body: new Center(
         child: Text(title),
       ),

@@ -2,17 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_first/pages/HangListPage.dart';
 
-class HangOrderPage extends StatefulWidget {
+class ListViewTestPage extends StatefulWidget {
   String title;
 
-  HangOrderPage(this.title);
+  ListViewTestPage(this.title);
 
   @override
   _HangOrderPageState createState() => new _HangOrderPageState(title);
 }
 
-class _HangOrderPageState extends State<HangOrderPage> {
-  List tabText = ["红酒", "国际黄金", "美国原油", "上海期货", "全球股指", "外汇", "LEM金属", "深石油"];
+class _HangOrderPageState extends State<ListViewTestPage> {
+  List tabText = ["红酒22", "国际黄金", "美国原油", "上海期货", "全球股指", "外汇", "LEM金属", "深石油"];
 
 //  List tabText = ["红酒", "国际黄金", "美国原油", "上海期货", "全球股指",];
   String title;
@@ -39,6 +39,10 @@ class _HangOrderPageState extends State<HangOrderPage> {
             itemBuilder: (context, index) {
               var isRed=((index%2==0)?true:false);
               return new ListTile(
+                onTap: (){
+
+                },
+                selected: true,
                 dense: true,
                 contentPadding: EdgeInsets.all(10),
                 leading: new Column(
