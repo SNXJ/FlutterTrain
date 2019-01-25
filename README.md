@@ -1,16 +1,41 @@
 # flutter_first
 
-A new Flutter application.
 
-## Getting Started
+这是Flutter个人练习项目
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## 了解Flutter：
+- [Flutter SDK](https://docs.flutter.io/index.html)
+- [Flutter Doc 中文版](https://flutterchina.club/docs/)
+- [Flutter Doc 英文版](https://flutter.io/docs)
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# 功能
+
+- [x] 登录（使用测试账号）
+- [x] 首页
+- [x] 个人中心
+- [x] 持仓
+- [x] 行情
+- [x] 积分商城
+- [x] 公共WebView
+- [ ] 未完待续...
+
+
+##截图
+
+<div>
+    <img src='./screenshorts/home.jpg' width=280>
+    <img src='./screenshots/hang_order.png' width=280>
+    <img src='./screenshots/order_trade.png' width=280>
+</div>
+<div>
+    <img src='./screenshorts/discover_mall.jpg' width=280>
+    <img src='./screenshots/mine.png' width=280>
+</div>
+
+
+# LICENSE
+The MIT License (MIT)
+
+Copyright (c) 2019 SNXJ
