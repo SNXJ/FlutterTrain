@@ -22,20 +22,43 @@
 - [x] 公共WebView
 - [ ] 未完待续...
 
+###bug 注意：
 
+    flutter的stable v1.0.0 在IOS build时遇到一下bug
+    
+    ld: framework not found Flutter
+    
+    解决：更新flutter(切换到master或着beta)
+    
+    
 
-## 截图
+## android截图
 
 
 <div>
-    <img src='./screenshots/home.jpg' width=280  height = 520>
-    <img src='./screenshots/hang_order.jpg' width=280 height = 520>
-    <img src='./screenshots/order_trade.jpg' width=280  height = 520>
+    <img src='./screenshots/home.jpg' width=280  height = 500>
+    <img src='./screenshots/hang_order.jpg' width=280 height = 500>
+    <img src='./screenshots/order_trade.jpg' width=280  height = 500>
 </div>
 <div>
-    <img src='./screenshots/discover_mall.jpg' width=280  height = 520>
-    <img src='./screenshots/mine.jpg' width=280  height = 520>
-    <img src='./screenshots/login.jpg' width=280  height = 520>
+    <img src='./screenshots/discover_mall.jpg' width=280  height = 500>
+    <img src='./screenshots/mine.jpg' width=280  height = 500>
+    <img src='./screenshots/login.jpg' width=280  height = 500>
+</div>
+
+
+## IOS截图
+
+
+<div>
+    <img src='./screenshots/ios_01.jpeg' width=280  height = 500>
+    <img src='./screenshots/ios_02.jpeg' width=280 height = 500>
+    <img src='./screenshots/ios_03.jpeg' width=280  height = 500>
+</div>
+<div>
+    <img src='./screenshots/ios_04.jpeg' width=280  height = 500>
+    <img src='./screenshots/ios_05.jpeg' width=280  height = 500>
+    <img src='./screenshots/ios_06.jpeg' width=280  height = 500>
 </div>
 
 
