@@ -22,9 +22,9 @@
 - [x] 公共WebView
 - [ ] 未完待续...
 
-###bug 注意：
+### bug 注意：
 
-    flutter的stable v1.0.0 在IOS build时遇到一下bug
+    flutter的stable v1.0.0 在IOS build时遇到以下bug
     
     ld: framework not found Flutter
     
